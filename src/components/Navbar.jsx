@@ -2,7 +2,9 @@ import React from 'react'
 
 function Navbar() {
     return (
-        <div>Navbar</div>
+        <nav style={{ padding: "10px", background: "#111", color: "white" }}>
+            <h2>BingeList</h2>
+        </nav>
     )
 }
 
