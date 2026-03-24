@@ -4,11 +4,20 @@ import { fetchMovies } from "../services/api";
 const Home = () => {
     const [search, setSearch] = useState("");
     const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         if (search.length < 3) return;
+        // const getMovies = async () => {
+        //     const data = await fetchMovies(search);
+        //     setMovies(data.Search || []);
+        // };
         const getMovies = async () => {
+            setLoading(true);
+
             const data = await fetchMovies(search);
             setMovies(data.Search || []);
+
+            setLoading(false);
         };
         getMovies();
     }, [search]);
@@ -22,8 +31,9 @@ const Home = () => {
                 onChange={(e) => setSearch(e.target.value)}
             />
             <div>
-                {movies.map((movie) => (
-                    <p key={movie.imdbID}>
+                {loading && <p>Loading...</p>}
+                {movies.map((movie, index) => (
+                    <p key={movie.imdbID + index}>
                         {movie.Title}
                     </p>
                 ))}
