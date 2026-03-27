@@ -37,9 +37,15 @@ const Home = () => {
                         {movie.Title}
                     </p>
                 ))}
+
+                {!loading && search.length >= 3 && movies.length === 0 && (
+                    <p>No results found</p>
+                )}
+                <p>Searching for:{search} </p>
             </div>
-            <p>Searching for:{search} </p>
+
         </div>
+
     )
 }
 
