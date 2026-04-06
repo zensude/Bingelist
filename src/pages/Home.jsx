@@ -32,6 +32,9 @@ const Home = () => {
             />
             <div>
                 {loading && <p>Loading...</p>}
+                {search.length > 0 && search.length < 3 && (
+                    <p>Please enter at least 3 characters</p>
+                )}
                 {movies.map((movie, index) => (
                     <p key={movie.imdbID + index}>
                         {movie.Title}
@@ -39,7 +42,7 @@ const Home = () => {
                 ))}
 
                 {!loading && search.length >= 3 && movies.length === 0 && (
-                    <p>No results found</p>
+                    <p>No results found </p>
                 )}
                 <p>Searching for:{search} </p>
             </div>
