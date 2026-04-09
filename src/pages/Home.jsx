@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchMovies } from "../services/api";
+import MovieCard from "../components/MovieCard";
 
 const Home = () => {
     const [search, setSearch] = useState("");
@@ -35,10 +36,13 @@ const Home = () => {
                 {search.length > 0 && search.length < 3 && (
                     <p>Please enter at least 3 characters</p>
                 )}
-                {movies.map((movie, index) => (
+                {/* {movies.map((movie, index) => (
                     <p key={movie.imdbID + index}>
                         {movie.Title}
                     </p>
+                ))} */}
+                {movies.map((movie, index) => (
+                    <MovieCard key={movie.imdbID + index} movie={movie} />
                 ))}
 
                 {!loading && search.length >= 3 && movies.length === 0 && (
