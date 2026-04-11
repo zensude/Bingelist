@@ -31,7 +31,13 @@ const Home = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />
-            <div>
+            <div style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "20px",
+                padding: "20px"
+            }}>
                 {loading && <p>Loading...</p>}
                 {search.length > 0 && search.length < 3 && (
                     <p>Please enter at least 3 characters</p>
