@@ -6,6 +6,16 @@ const Home = () => {
     const [search, setSearch] = useState("");
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [favorites, setFavorites] = useState([]);
+    const toggleFavorite = (movie) => {
+        const isFav = favorites.find((m) => m.imdbID === movie.imdbID);
+
+        if (isFav) {
+            setFavorites(favorites.filter((m) => m.imdbID !== movie.imdbID));
+        } else {
+            setFavorites([...favorites, movie]);
+        }
+    };
     useEffect(() => {
         if (search.length < 3) return;
         // const getMovies = async () => {
@@ -48,7 +58,13 @@ const Home = () => {
                     </p>
                 ))} */}
                 {movies.map((movie, index) => (
-                    <MovieCard key={movie.imdbID + index} movie={movie} />
+                    // <MovieCard key={movie.imdbID + index} movie={movie} />
+                    <MovieCard
+                        key={movie.imdbID + index}
+                        movie={movie}
+                        toggleFavorite={toggleFavorite}
+                        favorites={favorites}
+                    />
                 ))}
 
                 {!loading && search.length >= 3 && movies.length === 0 && (

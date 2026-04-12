@@ -1,6 +1,7 @@
 import React from 'react'
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, toggleFavorite, favorites }) {
+    const isFav = favorites.some((m) => m.imdbID === movie.imdbID);
     return (
         <div style={{
             width: "180px",
@@ -27,6 +28,9 @@ function MovieCard({ movie }) {
                 </h3>
                 <p style={{ color: "gray", fontSize: "14px" }}>
                     {movie.Year}
+                    <button onClick={() => toggleFavorite(movie)}>
+                        {isFav ? "❌ Remove" : "⭐ Add to Favorites"}
+                    </button>
                 </p>
             </div>
 
