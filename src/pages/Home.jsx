@@ -1,12 +1,13 @@
+
 import React, { useState, useEffect } from 'react';
 import { fetchMovies } from "../services/api";
 import MovieCard from "../components/MovieCard";
 
-const Home = () => {
+const Home = ({ favorites, setFavorites }) => {
     const [search, setSearch] = useState("");
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [favorites, setFavorites] = useState([]);
+
     const toggleFavorite = (movie) => {
         const isFav = favorites.find((m) => m.imdbID === movie.imdbID);
 

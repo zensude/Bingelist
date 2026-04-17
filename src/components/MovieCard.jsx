@@ -4,7 +4,7 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
     const isFav = favorites.some((m) => m.imdbID === movie.imdbID);
     return (
         <div style={{
-            width: "180px",
+            width: "200px",
             backgroundColor: "#1c1c1c",
             borderRadius: "10px",
             overflow: "hidden",
@@ -28,6 +28,8 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
                 </h3>
                 <p style={{ color: "gray", fontSize: "14px" }}>
                     {movie.Year}
+                    <br></br>
+
                     <button onClick={() => toggleFavorite(movie)}>
                         {isFav ? "❌ Remove" : "⭐ Add to Favorites"}
                     </button>
