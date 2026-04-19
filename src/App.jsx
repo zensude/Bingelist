@@ -3,15 +3,34 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <Home favorites={favorites} setFavorites={setFavorites} />
-      <Favorites favorites={favorites} />
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <Favorites
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
