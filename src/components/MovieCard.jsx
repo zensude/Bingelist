@@ -31,7 +31,9 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
                     <br></br>
 
                     <button onClick={() => toggleFavorite(movie)}>
-                        {isFav ? "❌ Remove" : "⭐ Add to Favorites"}
+                        {favorites.find((m) => m.imdbID === movie.imdbID)
+                            ? "❤️"
+                            : "🤍"}
                     </button>
                 </p>
             </div>
