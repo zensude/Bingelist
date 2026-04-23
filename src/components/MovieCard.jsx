@@ -13,15 +13,14 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
         }}>
 
             <img
-                src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/180x270"}
-                alt={movie.Title}
-                style={{
-                    width: "100%",
-                    height: "270px",
-                    objectFit: "cover"
-                }}
-            />
+                src={movie.Poster !== "N/A" ? movie.Poster : "/no-image.png"}
+                onError={(e) => {
+                    e.target.src = "/no-image.png";
 
+                }}
+                width={200}
+                height={300}
+            />
             <div style={{ padding: "10px" }}>
                 <h3 style={{ fontSize: "16px", margin: "5px 0" }}>
                     {movie.Title}
@@ -30,7 +29,7 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
                     {movie.Year}
                     <br></br>
 
-                    <button onClick={() => toggleFavorite(movie)}>
+                    <button style={{ backgroundColor: "gray" }} onClick={() => toggleFavorite(movie)}>
                         {favorites.find((m) => m.imdbID === movie.imdbID)
                             ? "❤️"
                             : "🤍"}
