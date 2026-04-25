@@ -7,6 +7,7 @@ const Home = ({ favorites, setFavorites }) => {
     const [search, setSearch] = useState("");
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const toggleFavorite = (movie) => {
         const isFav = favorites.find((m) => m.imdbID === movie.imdbID);
@@ -24,12 +25,25 @@ const Home = ({ favorites, setFavorites }) => {
         //     setMovies(data.Search || []);
         // };
         const getMovies = async () => {
-            setLoading(true);
+            try {
+                setLoading(true);
+                setError(null);
 
-            const data = await fetchMovies(search);
-            setMovies(data.Search || []);
+                const data = await fetchMovies(search);
 
-            setLoading(false);
+                if (data.Response === "False") {
+                    setError(data.Error);
+                    setMovies([]);
+                } else {
+                    setMovies(data.Search || []);
+                }
+
+            } catch (err) {
+                setError("Something went wrong");
+                setMovies([]);
+            } finally {
+                setLoading(false);
+            }
         };
         getMovies();
     }, [search]);
@@ -71,12 +85,15 @@ const Home = ({ favorites, setFavorites }) => {
                 {!loading && search.length >= 3 && movies.length === 0 && (
                     <p>No results found </p>
                 )}
+                {error && <p style={{ color: "red" }}>{error}</p>}
                 <p>Searching for:{search} </p>
             </div>
 
         </div>
 
-    )
-}
+    );
+};
+
+
 
 export default Home;
