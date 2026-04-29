@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
@@ -6,7 +6,14 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem("favorites");
+
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
   return (
     <BrowserRouter>
       <Navbar />

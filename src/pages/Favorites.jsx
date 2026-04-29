@@ -23,7 +23,7 @@ const Favorites = ({ favorites, setFavorites }) => {
                 gap: "20px"
             }}>
                 {favorites.length === 0 && (
-                    <p>No favorites yet 😢</p>
+                    <p>No favorites yet </p>
                 )}
 
                 {favorites.map((movie) => (
