@@ -8,6 +8,7 @@ const Home = ({ favorites, setFavorites }) => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [backendMessage, setBackendMessage] = useState("");
 
     const toggleFavorite = (movie) => {
         const isFav = favorites.find((m) => m.imdbID === movie.imdbID);
@@ -47,9 +48,16 @@ const Home = ({ favorites, setFavorites }) => {
         };
         getMovies();
     }, [search]);
+    useEffect(() => {
+        fetch("http://127.0.0.1:5001/")
+            .then((res) => res.json())
+            .then((data) => setBackendMessage(data.message))
+            .catch(() => setBackendMessage("Backend connection failed"));
+    }, []);
     return (
         <div>
             <h1>Welcome to BingeList </h1>
+            <p>{backendMessage}</p>
             <input
                 type="text"
                 placeholder="Search movies or series"
