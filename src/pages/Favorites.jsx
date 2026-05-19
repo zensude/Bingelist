@@ -14,7 +14,7 @@ const Favorites = ({ favorites, setFavorites }) => {
 
     return (
         <div>
-            <h1>My Favorites</h1>
+            <h1>My Favorites ({favorites.length})</h1>
 
             <div style={{
                 display: "flex",
