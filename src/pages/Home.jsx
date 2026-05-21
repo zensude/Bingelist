@@ -71,7 +71,17 @@ const Home = ({ favorites, setFavorites }) => {
                 gap: "20px",
                 padding: "20px"
             }}>
-                {loading && <p>Loading...</p>}
+                {loading && (
+                    <div style={{
+                        width: "50px",
+                        height: "50px",
+                        border: "5px solid #ccc",
+                        borderTop: "5px solid red",
+                        borderRadius: "50%",
+                        margin: "20px auto",
+                        animation: "spin 1s linear infinite"
+                    }} />
+                )}
                 {search.length > 0 && search.length < 3 && (
                     <p>Please enter at least 3 characters</p>
                 )}
