@@ -2,7 +2,7 @@ import React from 'react'
 
 function Filterbar() {
     return (
-        <div>Filterbar</div>
+        <div className='filter font-bold text-amber-600'>Filterbar</div>
     )
 }
 

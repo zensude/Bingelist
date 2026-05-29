@@ -55,7 +55,7 @@ const Home = ({ favorites, setFavorites }) => {
             .catch(() => setBackendMessage("Backend connection failed"));
     }, []);
     return (
-        <div>
+        <div className="min-h-screen bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 text-white p-5">
             <h1>Welcome to BingeList </h1>
             <p>{backendMessage}</p>
             <input
@@ -63,6 +63,7 @@ const Home = ({ favorites, setFavorites }) => {
                 placeholder="Search movies or series"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                className="border border-gray-400 p-2 rounded w-80 text-black"
             />
             <div style={{
                 display: "flex",
