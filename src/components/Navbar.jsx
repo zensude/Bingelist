@@ -3,16 +3,30 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-        <nav style={{ padding: "10px", background: "#111", color: "white", display: "flex", gap: "20px", alignItems: "center" }}>
-            <h2>BingeList</h2>
+        <nav className="bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 p-4 shadow-md flex justify-between items-center">
 
-            <Link to="/" style={{ color: "white" }}>
-                Home
-            </Link>
 
-            <Link to="/favorites" style={{ color: "white" }}>
-                Favorites
-            </Link>
+            <h2 className="text-2xl font-bold text-rose-600">
+
+                BingeList
+
+            </h2>
+
+            <div className="flex gap-6">
+
+                <Link to="/" className="text-white font-medium hover:text-rose-500">
+
+                    Home
+
+                </Link>
+
+                <Link to="/favorites" className="text-white font-medium hover:text-rose-500">
+
+                    Favorites
+
+                </Link>
+
+            </div>
         </nav>
     )
 }
