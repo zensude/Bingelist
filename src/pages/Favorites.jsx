@@ -16,7 +16,7 @@ const Favorites = ({ favorites, setFavorites }) => {
         <div>
             <h1>My Favorites ({favorites.length})</h1>
 
-            <div class=" flex flex-wrap justify-center gap-5 bg-amber-400" >
+            <div className="flex flex-wrap justify-center gap-5 bg-pink-100 p-5 rounded-xl">
                 {favorites.length === 0 && (
                     <p>No favorites yet </p>
                 )}
