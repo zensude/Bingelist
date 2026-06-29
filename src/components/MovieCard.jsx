@@ -4,14 +4,7 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
     const isFav = favorites.some((m) => m.imdbID === movie.imdbID);
 
     return (
-        <div style={{
-            width: "200px",
-            backgroundColor: "#1c1c1c",
-            borderRadius: "10px",
-            overflow: "hidden",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.5)",
-            textAlign: "center"
-        }}>
+        <div className="w-52 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
 
             <img
                 src={movie.Poster !== "N/A" ? movie.Poster : "/no-image.png"}

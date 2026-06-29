@@ -25,6 +25,8 @@ const Favorites = ({ favorites, setFavorites }) => {
                     <MovieCard
                         key={movie.imdbID}
                         movie={movie}
+
+
                         toggleFavorite={toggleFavorite}
                         favorites={favorites}
                     />

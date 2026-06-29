@@ -3,24 +3,24 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-        <nav className="bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 p-4 shadow-md flex justify-between items-center">
+        <nav className="bg-gradient-to-r from-fuchsia-700 via-pink-600 to-rose-500">
 
 
-            <h2 className="text-2xl font-bold text-rose-600">
+            <h2 className="text-3xl font-extrabold text-white tracking-wide">
 
-                BingeList
+
 
             </h2>
 
             <div className="flex gap-6">
 
-                <Link to="/" className="text-white font-medium hover:text-rose-500">
+                <Link to="/" className="px-4 py-2 rounded-full text-white font-medium transition duration-300 hover:bg-white/20">
 
                     Home
 
                 </Link>
 
-                <Link to="/favorites" className="text-white font-medium hover:text-rose-500">
+                <Link to="/favorites" className="px-4 py-2 rounded-full text-white font-medium transition duration-300 hover:bg-white/20">
 
                     Favorites
 

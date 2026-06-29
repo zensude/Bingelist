@@ -56,24 +56,22 @@ const Home = ({ favorites, setFavorites }) => {
     }, []);
     return (
         <div className="min-h-screen bg-gradient-to-br from-rose-100 via-pink-200 to-violet-200 text-gray-800 p-5">
-            <h1 className="text-5xl font-bold mb-6 text-rose-500">
+            <h1 className="text-5xl font-extrabold text-center text-rose-600 mb-3">
                 Welcome to BingeList ✨
             </h1>
-            <p>{backendMessage}</p>
-            <input
+
+            <p className="text-center text-gray-600 mb-8">
+                Search your favorite movies and build your personal watchlist.
+            </p>
+            <div className="flex justify-center mb-8"><input
                 type="text"
                 placeholder="Search movies or series"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="bg-white/80 border border-rose-300 p-3 rounded-xl w-80 text-gray-800 placeholder-rose-300 shadow-md"
-            />
-            <div style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: "20px",
-                padding: "20px"
-            }}>
+                className="w-full max-w-lg rounded-full border border-rose-300 bg-white px-6 py-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
+            /></div>
+
+            <div className="flex flex-wrap justify-center gap-6 py-6">
                 {loading && (
                     <div style={{
                         width: "50px",
