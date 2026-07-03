@@ -57,7 +57,7 @@ const Home = ({ favorites, setFavorites }) => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-rose-100 via-pink-200 to-violet-200 text-gray-800 p-5">
             <h1 className="text-5xl font-extrabold text-center text-rose-600 mb-3">
-                Welcome to BingeList ✨
+                Welcome to BingeList
             </h1>
 
             <p className="text-center text-gray-600 mb-8">
