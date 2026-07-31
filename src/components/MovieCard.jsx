@@ -15,12 +15,12 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
                 height={300}
             />
 
-            <div style={{ padding: "10px" }}>
-                <h3 style={{ fontSize: "16px", margin: "5px 0" }}>
+            <div className="p-3">
+                <h3 className="text-base m-4">
                     {movie.Title}
                 </h3>
 
-                <p style={{ color: "gray", fontSize: "14px" }}>
+                <p className="text-gray-500 text-sm">
                     {movie.Year}
                 </p>
 
