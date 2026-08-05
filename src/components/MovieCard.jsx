@@ -26,14 +26,10 @@ function MovieCard({ movie, toggleFavorite, favorites }) {
 
                 <button
                     onClick={() => toggleFavorite(movie)}
-                    style={{
-                        backgroundColor: isFav ? "red" : "gray",
-                        color: "white",
-                        border: "none",
-                        padding: "6px 10px",
-                        borderRadius: "5px",
-                        cursor: "pointer"
-                    }}
+                    className={`mt-3 px-3 py-2 rounded-lg text-white cursor-pointer transition duration-300 ${isFav
+                            ? "bg-red-500 hover:bg-red-600"
+                            : "bg-gray-500 hover:bg-gray-600"
+                        }`}
                 >
                     {isFav ? "❤️ Favorited" : "🤍 Add"}
                 </button>
