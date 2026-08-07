@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { useParams } from "react-router-dom";
 function MovieDetail() {
-    return (
-        <div>MovieDetail</div>
-    )
+    const { id } = useParams();
+
+    return <h1>{id}</h1>;
 }
 
 export default MovieDetail

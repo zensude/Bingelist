@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
+import MovieDetail from "./pages/MovieDetail";
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -35,6 +36,10 @@ function App() {
               setFavorites={setFavorites}
             />
           }
+        />
+        <Route
+          path="/movie/:id"
+          element={<MovieDetail />}
         />
       </Routes>
     </BrowserRouter>
