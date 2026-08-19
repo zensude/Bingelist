@@ -1,9 +1,22 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { fetchMovieById } from "../services/api";
+
 function MovieDetail() {
     const { id } = useParams();
 
-    return <h1>IMDb ID:{id}</h1>;
+    const [movie, setMovie] = useState(null);
+
+    useEffect(() => {
+        const getMovie = async () => {
+            const data = await fetchMovieById(id);
+            setMovie(data);
+        };
+
+        getMovie();
+    }, [id]);
+
+    return <h1>IMDb ID: {id}</h1>;
 }
 
 export default MovieDetail

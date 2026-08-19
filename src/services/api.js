@@ -7,3 +7,10 @@ export const fetchMovies = async (query) => {
     const data = await res.json();
     return data;
 }
+export const fetchMovieById = async (id) => {
+    const res = await fetch(
+        `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`
+    );
+    const data = await res.json();
+    return data;
+}
