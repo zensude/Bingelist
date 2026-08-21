@@ -1,52 +1,44 @@
-import React from 'react'
 import { Link } from "react-router-dom";
+
 function MovieCard({ movie, toggleFavorite, favorites }) {
     const isFav = favorites.some((m) => m.imdbID === movie.imdbID);
 
     return (
-        <Link to={`/movie/${movie.imdbID}`}>
-
-            <div className="w-52 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300">
-
+        <div className="w-full max-w-52 overflow-hidden rounded-2xl bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <Link to={`/movie/${movie.imdbID}`} className="block">
                 <img
                     src={movie.Poster !== "N/A" ? movie.Poster : "/no-image.png"}
                     onError={(e) => {
                         e.target.src = "/no-image.png";
                     }}
-                    width={200}
-                    height={300}
+                    alt={movie.Title}
+                    className="h-72 w-full object-cover"
                 />
 
-                <div className="p-3">
-                    <h3 className="text-base m-4">
+                <div className="p-4">
+                    <h3 className="h-12 text-base font-semibold text-gray-800">
                         {movie.Title}
                     </h3>
 
-                    <p className="text-gray-500 text-sm">
+                    <p className="mt-1 text-sm text-gray-500">
                         {movie.Year}
                     </p>
-                    <p>{movie.imdbID}</p>
-
-                    <button
-                        onClick={() => toggleFavorite(movie)}
-                        className={`mt-3 px-3 py-2 rounded-lg text-white cursor-pointer transition duration-300 ${isFav
-                            ? "bg-red-500 hover:bg-red-600"
-                            : "bg-gray-500 hover:bg-gray-600"
-                            }`}
-                    >
-                        {isFav ? "❤️ Favorited" : "🤍 Add"}
-                    </button>
                 </div>
+            </Link>
 
+            <div className="px-4 pb-4">
+                <button
+                    onClick={() => toggleFavorite(movie)}
+                    className={`w-full rounded-lg px-3 py-2 text-sm font-medium text-white transition duration-300 ${isFav
+                            ? "bg-rose-500 hover:bg-rose-600"
+                            : "bg-slate-600 hover:bg-slate-700"
+                        }`}
+                >
+                    {isFav ? "♥ Favorited" : "♡ Add to favorites"}
+                </button>
             </div>
-
-
-        </Link>
-
-    )
+        </div>
+    );
 }
 
 export default MovieCard;
-
-
-

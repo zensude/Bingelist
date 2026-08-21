@@ -20,11 +20,12 @@ const Home = ({ favorites, setFavorites }) => {
         }
     };
     useEffect(() => {
-        if (search.length < 3) return;
-        // const getMovies = async () => {
-        //     const data = await fetchMovies(search);
-        //     setMovies(data.Search || []);
-        // };
+        if (search.length < 3) {
+            setMovies([]);
+            setError(null);
+            return;
+        }
+
         const getMovies = async () => {
             try {
                 setLoading(true);
@@ -60,7 +61,10 @@ const Home = ({ favorites, setFavorites }) => {
                 Welcome to BingeList
             </h1>
 
-            <p className="text-center text-gray-600 mb-8">
+            <p
+                className="text-center text-gray-600"
+                style={{ marginBottom: "24px" }}
+            >
                 Search your favorite movies and build your personal watchlist.
             </p>
             <div className="flex justify-center mb-8"><input
@@ -71,7 +75,7 @@ const Home = ({ favorites, setFavorites }) => {
                 className="w-full max-w-lg rounded-full border border-rose-300 bg-white px-6 py-3 shadow-lg focus:outline-none focus:ring-2 focus:ring-rose-400"
             /></div>
 
-            <div className="flex flex-wrap justify-center gap-6 py-6">
+            <div className="mx-auto grid max-w-6xl grid-cols-1 justify-items-center gap-6 py-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {loading && (
                     <div style={{
                         width: "50px",
@@ -105,7 +109,7 @@ const Home = ({ favorites, setFavorites }) => {
                     <p>No results found </p>
                 )}
                 {error && <p style={{ color: "red" }}>{error}</p>}
-                <p>Searching for:{search} </p>
+
             </div>
 
         </div>
