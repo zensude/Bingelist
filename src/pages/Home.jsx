@@ -88,7 +88,7 @@ const Home = ({ favorites, setFavorites }) => {
                     }} />
                 )}
                 {search.length > 0 && search.length < 3 && (
-                    <p>Please enter at least 3 characters</p>
+                    <p className="col-span-full w-full text-center text-sm text-gray-600">Please enter at least 3 characters</p>
                 )}
                 {/* {movies.map((movie, index) => (
                     <p key={movie.imdbID + index}>
