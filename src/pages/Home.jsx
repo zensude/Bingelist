@@ -8,7 +8,7 @@ const Home = ({ favorites, setFavorites }) => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [backendMessage, setBackendMessage] = useState("");
+
 
     const toggleFavorite = (movie) => {
         const isFav = favorites.find((m) => m.imdbID === movie.imdbID);
@@ -49,12 +49,7 @@ const Home = ({ favorites, setFavorites }) => {
         };
         getMovies();
     }, [search]);
-    useEffect(() => {
-        fetch("http://127.0.0.1:5001/")
-            .then((res) => res.json())
-            .then((data) => setBackendMessage(data.message))
-            .catch(() => setBackendMessage("Backend connection failed"));
-    }, []);
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-rose-100 via-pink-200 to-violet-200 text-gray-800 p-5">
             <h1 className="text-5xl font-extrabold text-center text-rose-600 mb-3">
@@ -105,10 +100,11 @@ const Home = ({ favorites, setFavorites }) => {
                     />
                 ))}
 
-                {!loading && search.length >= 3 && movies.length === 0 && (
-                    <p>No results found </p>
+                {!loading && search.length >= 3 && (error || movies.length === 0) && (
+                    <p className="col-span-full w-full text-center text-lg font-medium text-rose-600">
+                        {error || "No results found."}
+                    </p>
                 )}
-                {error && <p style={{ color: "red" }}>{error}</p>}
 
             </div>
 
