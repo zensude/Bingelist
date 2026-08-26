@@ -1,17 +1,59 @@
-# React + Vite 
+# BingeList
 
- 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BingeList is a movie and series search application built with React. Users can search for titles, view movie details, and create a personal favorites list.
 
-Currently, two official plugins are available: 
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search movies and series through the OMDb API
+- View movie details, including poster, year, genre, director, actors, IMDb rating, and plot
+- Add and remove movies from a favorites list
+- Keep favorites saved with local storage
+- Responsive movie card layout
+- Loading, error, and “no results” states
+- Navigation between the search, favorites, and movie detail pages
 
-## React Compiler  
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router
+- Tailwind CSS
+- OMDb API
+- Local Storage
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+
+```bash
+git clone https://github.com/zensude/BingeList.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+4. Open the local address shown in the terminal.
+
+## What I Learned
+
+- Building reusable React components
+- Managing state with `useState`
+- Fetching API data with `useEffect`
+- Using dynamic routes with React Router
+- Saving user data with local storage
+- Handling loading and error states
+
+## Future Improvements
+
+- Filter movies by genre or year
+- Add pagination for search results
+- Deploy the application online
